@@ -4,6 +4,7 @@ public class GenericsMaxValue {
 	public static void main(String[] args) {
 		printMax(testMaximumInteger(100, 500, 400));
 		printMax(testMaximumDouble(1.1, 1.2, 1.3));
+		printMax(testMaximumString("Arun", "Avinash", "Arjun"));
 	}
 
 	public static <E extends Comparable<E>> E max(E[] list) {
@@ -32,6 +33,7 @@ public class GenericsMaxValue {
 		}
 		return max;
 	}
+
 	public static double testMaximumDouble(Double x, Double y, Double z) {
 		Double max1 = x;
 		if (y.compareTo(max1) > 0) {
@@ -43,10 +45,30 @@ public class GenericsMaxValue {
 		return max1;
 	}
 
+	public static String testMaximumString(String first, String second, String third) {
+		int max = first.length();
+		String letter = first;
+		if (second.length() > max) {
+			max = second.length();
+			letter = second;
+		}
+		if (third.length() > max) {
+			max = third.length();
+			letter = third;
+		}
+		return letter;
+	}
+
+	@SuppressWarnings("unused")
 	private static void printMax(Integer max) {
 		System.out.println(" Maximum number is : " + max);
 	}
+
 	private static void printMax(double max) {
 		System.out.println(" Maximum integer  number is : " + max);
+	}
+
+	private static void printMax(String max) {
+		System.out.println(" Maximum String length is : " + max);
 	}
 }
