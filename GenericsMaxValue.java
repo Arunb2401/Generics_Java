@@ -3,6 +3,7 @@ package com.javaGenerics;
 public class GenericsMaxValue {
 	public static void main(String[] args) {
 		printMax(testMaximumInteger(100, 500, 400));
+		printMax(testMaximumDouble(1.1, 1.2, 1.3));
 	}
 
 	public static <E extends Comparable<E>> E max(E[] list) {
@@ -31,8 +32,21 @@ public class GenericsMaxValue {
 		}
 		return max;
 	}
+	public static double testMaximumDouble(Double x, Double y, Double z) {
+		Double max1 = x;
+		if (y.compareTo(max1) > 0) {
+			max1 = y;
+		}
+		if (z.compareTo(max1) > 0) {
+			max1 = z;
+		}
+		return max1;
+	}
 
 	private static void printMax(Integer max) {
 		System.out.println(" Maximum number is : " + max);
+	}
+	private static void printMax(double max) {
+		System.out.println(" Maximum integer  number is : " + max);
 	}
 }
